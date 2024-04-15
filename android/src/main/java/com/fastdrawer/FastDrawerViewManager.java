@@ -45,40 +45,23 @@ public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerS
   }
 
   @Override
-  @ReactMethod
   public void openDrawer(DrawerLayout view) {
-    view.openDrawer(Gravity.LEFT);
-    Log.d("FastDrawerView open", String.valueOf(Gravity.LEFT));
+     view.openDrawer(Gravity.LEFT);
   }
 
   @Override
-  @ReactMethod
   public void closeDrawer(DrawerLayout view) {
-    view.closeDrawer(Gravity.LEFT);
-    Log.d("FastDrawerView close", String.valueOf(Gravity.LEFT));
-  }
-
-  public Map<String, Integer> getCommandsMap() {
-    Map<String, Integer> commands = new HashMap<>();
-    commands.put("openDrawer", COMMAND_OPEN_DRAWER);
-    commands.put("closeDrawer", COMMAND_CLOSE_DRAWER);
-    return commands;
+     view.closeDrawer(Gravity.LEFT);
   }
 
   public void receiveCommand(@NonNull FastDrawerView root, String commandId, @Nullable ReadableArray args) {
-    super.receiveCommand(root, commandId, args);
-    int reactNativeViewId = args.getInt(0);
-    int commandIdInt = Integer.parseInt(commandId);
-
-    switch (commandIdInt) {
-      case COMMAND_OPEN_DRAWER:
-        openDrawer(root);
+    switch (commandId) {
+      case "openDrawer":
+        this.openDrawer(root);
         break;
-      case COMMAND_CLOSE_DRAWER:
-        closeDrawer(root);
+      case "closeDrawer":
+        this.closeDrawer(root);
         break;
-      default:
-        throw new IllegalArgumentException("Unknown command " + commandId + " received");
     }
   }
 }
