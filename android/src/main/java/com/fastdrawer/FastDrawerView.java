@@ -5,9 +5,9 @@ import androidx.annotation.Nullable;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import android.view.View;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-public class FastDrawerView extends View {
+public class FastDrawerView extends DrawerLayout {
 
   public FastDrawerView(Context context) {
     super(context);
