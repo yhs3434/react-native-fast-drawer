@@ -1,6 +1,7 @@
 import React from 'react';
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 import type { ViewProps } from 'react-native';
+import { UIManager, findNodeHandle } from 'react-native';
 
 interface NativeProps extends ViewProps {
   drawerPosition?: 'left' | 'right';
@@ -17,14 +18,30 @@ const FastDrawerViewComponent =
 
 const FastDrawer = React.forwardRef<DrawerMethods, NativeProps>(
   ({ children, ...restProps }, ref) => {
-    const drawerRef = React.useRef(null);
+    const drawerRef = React.useRef<any>(null);
 
     React.useImperativeHandle(ref, () => ({
       openDrawer: () => {
-        console.log('Open Drawer');
+        const nodeHandle = findNodeHandle(drawerRef.current);
+        if (nodeHandle) {
+          UIManager.dispatchViewManagerCommand(
+            nodeHandle,
+            UIManager.getViewManagerConfig('FastDrawerView')?.Commands
+              ?.openDrawer ?? 1,
+            []
+          );
+        }
       },
       closeDrawer: () => {
-        console.log('Close Drawer');
+        const nodeHandle = findNodeHandle(drawerRef.current);
+        if (nodeHandle) {
+          UIManager.dispatchViewManagerCommand(
+            nodeHandle,
+            UIManager.getViewManagerConfig('FastDrawerView')?.Commands
+              ?.closeDrawer ?? 2,
+            []
+          );
+        }
       },
     }));
 

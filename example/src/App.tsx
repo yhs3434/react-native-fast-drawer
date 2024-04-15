@@ -34,6 +34,5 @@ const styles = StyleSheet.create({
   },
   box: {
     flex: 1,
-    backgroundColor: 'red',
   },
 });
