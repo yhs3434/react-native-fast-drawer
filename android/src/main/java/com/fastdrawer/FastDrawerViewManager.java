@@ -9,10 +9,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
 @ReactModule(name = FastDrawerViewManager.NAME)
-public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerSpec<FastDrawerView> {
+public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerSpec {
 
   public static final String NAME = "FastDrawerView";
 

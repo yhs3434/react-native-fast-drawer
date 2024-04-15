@@ -16,7 +16,7 @@ const FastDrawerViewComponent =
   codegenNativeComponent<NativeProps>('FastDrawerView');
 
 const FastDrawer = React.forwardRef<DrawerMethods, NativeProps>(
-  ({ ...restProps }, ref) => {
+  ({ children, ...restProps }, ref) => {
     const drawerRef = React.useRef(null);
 
     React.useImperativeHandle(ref, () => ({
@@ -28,7 +28,11 @@ const FastDrawer = React.forwardRef<DrawerMethods, NativeProps>(
       },
     }));
 
-    return <FastDrawerViewComponent ref={drawerRef} {...restProps} />;
+    return (
+      <FastDrawerViewComponent ref={drawerRef} {...restProps}>
+        {children}
+      </FastDrawerViewComponent>
+    );
   }
 );
 
