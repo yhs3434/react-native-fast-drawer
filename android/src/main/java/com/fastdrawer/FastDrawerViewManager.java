@@ -4,9 +4,11 @@ import android.graphics.Color;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.facebook.react.bridge.ReactMethod;
@@ -34,7 +36,40 @@ public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerS
 
   @Override
   public FastDrawerView createViewInstance(ThemedReactContext context) {
-    return new FastDrawerView(context);
+    FastDrawerView drawerLayout = new FastDrawerView(context);
+
+    // Main content view
+    FrameLayout contentView = new FrameLayout(context);
+    contentView.setLayoutParams(new DrawerLayout.LayoutParams(
+      DrawerLayout.LayoutParams.MATCH_PARENT,
+      DrawerLayout.LayoutParams.MATCH_PARENT
+    ));
+    contentView.setBackgroundColor(Color.RED);
+    TextView textView = new TextView(context);
+    textView.setText("Main Content Here");
+    textView.setTextColor(Color.BLACK);
+    textView.setGravity(Gravity.CENTER);
+    contentView.addView(textView);
+
+    // Drawer view
+    FrameLayout drawerView = new FrameLayout(context);
+    DrawerLayout.LayoutParams drawerParams = new DrawerLayout.LayoutParams(
+      300,
+      DrawerLayout.LayoutParams.MATCH_PARENT
+    );
+    drawerParams.gravity = GravityCompat.END;
+    drawerView.setLayoutParams(drawerParams);
+    drawerView.setBackgroundColor(Color.LTGRAY);
+    TextView drawerText = new TextView(context);
+    drawerText.setText("Drawer Content Here");
+    drawerText.setTextColor(Color.BLACK);
+    drawerText.setGravity(Gravity.CENTER);
+    drawerView.addView(drawerText);
+
+    drawerLayout.addView(contentView);
+    drawerLayout.addView(drawerView);
+
+    return drawerLayout;
   }
 
   @Override
@@ -46,12 +81,12 @@ public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerS
 
   @Override
   public void openDrawer(DrawerLayout view) {
-     view.openDrawer(Gravity.LEFT);
+     view.openDrawer(Gravity.RIGHT);
   }
 
   @Override
   public void closeDrawer(DrawerLayout view) {
-     view.closeDrawer(Gravity.LEFT);
+     view.closeDrawer(Gravity.RIGHT);
   }
 
   public void receiveCommand(@NonNull FastDrawerView root, String commandId, @Nullable ReadableArray args) {
