@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
-import { FastDrawer, type DrawerMethods } from 'react-native-fast-drawer';
+import { FastDrawer, type FastDrawerMethods } from 'react-native-fast-drawer';
 
 export default function App() {
-  const drawerRef = React.useRef<DrawerMethods>(null);
+  const drawerRef = React.useRef<FastDrawerMethods>(null);
 
   return (
     <View style={styles.container}>
-      <FastDrawer ref={drawerRef} style={styles.box}>
-        <View>
+      <FastDrawer ref={drawerRef} style={styles.drawerLayout} drawerWidth={600}>
+        <View style={styles.contentContainer}>
           <Text>drawer children</Text>
         </View>
       </FastDrawer>
@@ -32,7 +32,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  box: {
+  drawerLayout: {
     flex: 1,
+  },
+  contentContainer: {
+    //
   },
 });

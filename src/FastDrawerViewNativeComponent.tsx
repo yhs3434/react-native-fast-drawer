@@ -4,13 +4,14 @@ import codegenNativeCommands from 'react-native/Libraries/Utilities/codegenNativ
 import type { ViewProps, HostComponent } from 'react-native';
 
 interface FastDrawerProps extends ViewProps {
-  drawerPosition?: 'left' | 'right';
   children?: React.ReactNode;
+  drawerPosition?: 'left' | 'right';
+  drawerWidth?: number;
 }
 
 export interface FastDrawerMethods {
-  openDrawer: (ref: React.ElementRef<HostComponent<FastDrawerProps>>) => void;
-  closeDrawer: (ref: React.ElementRef<HostComponent<FastDrawerProps>>) => void;
+  openDrawer: (ref?: React.ElementRef<HostComponent<FastDrawerProps>>) => void;
+  closeDrawer: (ref?: React.ElementRef<HostComponent<FastDrawerProps>>) => void;
 }
 
 const FastDrawerViewComponent =
