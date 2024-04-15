@@ -27,12 +27,6 @@ public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerS
   }
 
   @Override
-  @ReactProp(name = "color")
-  public void setColor(FastDrawerView view, @Nullable String color) {
-    view.setBackgroundColor(Color.parseColor(color));
-  }
-
-  @Override
   @ReactProp(name = "drawerPosition")
   public void setDrawerPosition(FastDrawerView view, String position) {
     int gravity = position.equals("left") ? Gravity.LEFT : Gravity.RIGHT;

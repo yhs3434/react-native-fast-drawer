@@ -10,7 +10,6 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.uimanager.SimpleViewManager;
 
 public abstract class FastDrawerViewManagerSpec<T extends View> extends SimpleViewManager<T> {
-  public abstract void setColor(T view, @Nullable String value);
   public abstract void setDrawerPosition(T view, String position);
 
   @ReactMethod
