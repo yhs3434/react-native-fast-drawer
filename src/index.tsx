@@ -1,2 +1,2 @@
-export { default as FastDrawerView } from './FastDrawerViewNativeComponent';
+export { default as FastDrawer } from './FastDrawerViewNativeComponent';
 export * from './FastDrawerViewNativeComponent';

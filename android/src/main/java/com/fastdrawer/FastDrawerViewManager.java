@@ -34,13 +34,11 @@ public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerS
   }
 
   @Override
-  @ReactMethod
   public void openDrawer(DrawerLayout view) {
     view.openDrawer(Gravity.LEFT);
   }
 
   @Override
-  @ReactMethod
   public void closeDrawer(DrawerLayout view) {
     view.closeDrawer(Gravity.LEFT);
   }

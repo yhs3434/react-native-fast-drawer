@@ -11,10 +11,6 @@ import com.facebook.react.uimanager.SimpleViewManager;
 
 public abstract class FastDrawerViewManagerSpec<T extends View> extends SimpleViewManager<T> {
   public abstract void setDrawerPosition(T view, String position);
-
-  @ReactMethod
   public abstract void openDrawer(DrawerLayout view);
-
-  @ReactMethod
   public abstract void closeDrawer(DrawerLayout view);
 }
