@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.facebook.react.ReactRootView;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.module.annotations.ReactModule;
@@ -62,7 +63,14 @@ public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerS
 
   @Override
   public void addView(FastDrawerView parent, View child, int index) {
-    contentView.addView(child);
+    switch (index) {
+      case 0:
+        contentView.addView(child);
+        break;
+      case 1:
+        drawerView.addView(child);
+        break;
+    }
   }
 
   @Override

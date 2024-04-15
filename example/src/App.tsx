@@ -7,7 +7,16 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <FastDrawer ref={drawerRef} style={styles.drawerLayout} drawerWidth={600}>
+      <FastDrawer
+        ref={drawerRef}
+        style={styles.drawerLayout}
+        drawerWidth={600}
+        drawerContent={() => (
+          <View>
+            <Text>drawer content</Text>
+          </View>
+        )}
+      >
         <View style={styles.contentContainer}>
           <Text>drawer children</Text>
         </View>

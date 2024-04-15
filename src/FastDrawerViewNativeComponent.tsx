@@ -7,6 +7,7 @@ interface FastDrawerProps extends ViewProps {
   children?: React.ReactNode;
   drawerPosition?: 'left' | 'right';
   drawerWidth?: number;
+  drawerContent: () => React.ReactNode;
 }
 
 export interface FastDrawerMethods {
@@ -22,7 +23,7 @@ const Commands = codegenNativeCommands<FastDrawerMethods>({
 });
 
 const FastDrawer = React.forwardRef<FastDrawerMethods, FastDrawerProps>(
-  ({ children, ...restProps }, ref) => {
+  ({ children, drawerContent, ...restProps }, ref) => {
     const drawerRef = React.useRef<any>(null);
 
     React.useImperativeHandle(ref, () => ({
@@ -39,8 +40,13 @@ const FastDrawer = React.forwardRef<FastDrawerMethods, FastDrawerProps>(
     }));
 
     return (
-      <FastDrawerViewComponent ref={drawerRef} {...restProps}>
+      <FastDrawerViewComponent
+        ref={drawerRef}
+        drawerContent={() => drawerContent()}
+        {...restProps}
+      >
         {children}
+        {drawerContent()}
       </FastDrawerViewComponent>
     );
   }
