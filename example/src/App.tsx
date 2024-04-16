@@ -12,10 +12,11 @@ export default function App() {
         style={styles.drawerLayout}
         drawerWidth={600}
         drawerContent={() => (
-          <View>
+          <View style={{ backgroundColor: 'red' }}>
             <Text>drawer content</Text>
           </View>
         )}
+        backdropColor="#00000000"
       >
         <View style={styles.contentContainer}>
           <Text>drawer children</Text>

@@ -94,6 +94,12 @@ public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerS
   }
 
   @Override
+  @ReactProp(name = "backdropColor")
+  public void setBackdropColor(FastDrawerView view, @Nullable String color) {
+    view.setScrimColor(Color.parseColor(color));
+  }
+
+  @Override
   public void openDrawer(DrawerLayout view) {
      view.openDrawer(Gravity.RIGHT);
   }

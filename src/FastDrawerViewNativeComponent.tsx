@@ -8,6 +8,7 @@ interface FastDrawerProps extends ViewProps {
   drawerPosition?: 'left' | 'right';
   drawerWidth?: number;
   drawerContent: () => React.ReactNode;
+  backdropColor?: string;
 }
 
 export interface FastDrawerMethods {
