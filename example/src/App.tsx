@@ -17,6 +17,7 @@ export default function App() {
           </View>
         )}
         backdropColor="#00000000"
+        enableLock
       >
         <View style={styles.contentContainer}>
           <Text>drawer children</Text>

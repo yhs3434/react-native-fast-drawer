@@ -21,6 +21,7 @@ public abstract class FastDrawerViewManagerSpec extends ViewGroupManager<com.fas
   public abstract void setDrawerPosition(FastDrawerView view, String position);
   public abstract void setDrawerWidth(FastDrawerView view, Integer drawerWidth);
   public abstract void setBackdropColor(FastDrawerView view, String color);
+  public abstract void setDrawerLockMode(FastDrawerView view, Boolean isLock);
   public abstract void openDrawer(DrawerLayout view);
   public abstract void closeDrawer(DrawerLayout view);
 }

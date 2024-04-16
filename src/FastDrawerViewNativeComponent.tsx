@@ -9,6 +9,7 @@ interface FastDrawerProps extends ViewProps {
   drawerWidth?: number;
   drawerContent: () => React.ReactNode;
   backdropColor?: string;
+  enableLock?: boolean;
 }
 
 export interface FastDrawerMethods {

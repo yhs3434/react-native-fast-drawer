@@ -100,6 +100,16 @@ public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerS
   }
 
   @Override
+  @ReactProp(name = "enableLock")
+  public void setDrawerLockMode(FastDrawerView view, Boolean isLock) {
+    if (isLock == true) {
+      view.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN);
+    } else {
+      view.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+    }
+  }
+
+  @Override
   public void openDrawer(DrawerLayout view) {
      view.openDrawer(Gravity.RIGHT);
   }
