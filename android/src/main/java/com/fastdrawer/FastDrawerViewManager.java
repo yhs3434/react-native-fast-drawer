@@ -53,7 +53,7 @@ public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerS
 
     // Drawer view
     drawerView = new FrameLayout(context);
-    drawerView.setBackgroundColor(Color.WHITE);
+    drawerView.setBackgroundColor(Color.TRANSPARENT);
 
     drawerLayout.addView(contentView);
     drawerLayout.addView(drawerView);
@@ -90,6 +90,10 @@ public class FastDrawerViewManager extends com.fastdrawer.FastDrawerViewManagerS
       );
       drawerParams.gravity = GravityCompat.END;
       drawerView.setLayoutParams(drawerParams);
+
+      view.removeAllViews();
+      view.addView(contentView);
+      view.addView(drawerView);
     }
   }
 
